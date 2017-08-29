@@ -6,4 +6,19 @@
 @import "variables";
 
 // Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+//@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "navbar";
+@import "carousel";
+@import "index";
+
+body{
+    background: #fff;
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+.hidden-xs{
+    display: block;
+}
