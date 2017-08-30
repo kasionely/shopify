@@ -1,0 +1,35 @@
+//Form
+
+.manage-forms{
+    margin: 20px;
+    width: 500px;
+    height: auto;
+}
+.some-form-item{
+    margin-top: 15px;
+    text-align: left;
+    position: relative;
+
+    label{
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    input{
+        width: 100%;
+        display: block;
+        padding: 10px;
+        border: solid 1px #ccc;
+        clear: both;
+    }
+}
+.add-btn{
+    width: auto !important;
+    font-size: .8em;
+    padding: 10px 12px !important;
+    border: solid 1px #46a229 !important;
+    color: #46a229 !important;
+    background-color: #fff !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 3px !important;
+}
