@@ -6,6 +6,7 @@
  */
 
 require('./bootstrap');
+var uploader = require('fine-uploader');
 
 window.Vue = require('vue');
 
