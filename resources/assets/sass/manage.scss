@@ -1,35 +1,252 @@
 //Form
-
-.manage-forms{
-    margin: 20px;
-    width: 500px;
-    height: auto;
-}
-.some-form-item{
-    margin-top: 15px;
-    text-align: left;
-    position: relative;
-
-    label{
-        font-weight: 600;
-        margin-bottom: 10px;
+.manage-page{
+    .manage-forms{
+        margin: 20px;
+        width: 500px;
+        height: auto;
     }
-    input{
+    .some-form-item{
+        margin-top: 15px;
+        text-align: left;
+        position: relative;
+
+        label{
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+            clear: both;
+        }
+        input{
+            width: 100%;
+            display: block;
+            padding: 10px;
+            border: solid 1px #ccc;
+            clear: both;
+        }
+        .upload-view-btn{
+            position: relative;
+            overflow: hidden;
+            direction: ltr;
+        }
+        .item-view{
+            width: 150px;
+            height: 150px;
+            background-color: #f0f0f0;
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+
+            i{
+                font-size: 28px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateY(-50%) translateX(-50%);
+            }
+        }
+    }
+    /*Btn Styles*/
+    .btn{
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 400;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        touch-action: manipulation;
+        background-image: none;
+        border-radius: 4px;
+        border: 1px solid transparent;
+    }
+    .add-btn{
+        width: auto !important;
+        font-size: .8em;
+        padding: 10px 12px !important;
+        border: solid 1px #46a229 !important;
+        color: #46a229 !important;
+        background-color: #fff !important;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 3px !important;
+    }
+    .btn-danger{
+        color: #fff;
+        background-color: #d9534f;
+        border-color: #d9534f;
+    }
+    .btn-primary{
+        color: #fff;
+        background-color: #337ab7;
+        border-color: #2e6da4;
+    }
+    .btn-success{
+        color: #fff;
+        background-color: #5cb85c;
+        border-color: #4cae4c;
+    }
+
+    .list-page{
+        margin: 20px auto;
+    }
+
+    /*Table styles*/
+    .table-responsive{
         width: 100%;
-        display: block;
-        padding: 10px;
-        border: solid 1px #ccc;
-        clear: both;
+        height: 100%;
+        margin: 20px 0;
     }
-}
-.add-btn{
-    width: auto !important;
-    font-size: .8em;
-    padding: 10px 12px !important;
-    border: solid 1px #46a229 !important;
-    color: #46a229 !important;
-    background-color: #fff !important;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 3px !important;
+    table {
+        background-color: #fff;
+        border: 1px solid #efefef;
+    }
+    th {
+        text-align: left;
+    }
+    .table {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 0;
+        // Cells
+        > thead,
+        > tbody,
+        > tfoot {
+            > tr {
+                > th,
+                > td {
+                    padding: 10px;
+                    line-height: 16px;
+                    vertical-align: top;
+                    border-top: 1px solid #efefef;
+                }
+            }
+        }
+
+        > thead > tr > th {
+            vertical-align: bottom;
+        }
+
+        > caption + thead,
+        > colgroup + thead,
+        > thead:first-child {
+            > tr:first-child {
+                > th,
+                > td {
+                    border-top: 0;
+                }
+            }
+        }
+
+        > tbody + tbody {
+            border-top: 2px solid #efefef;
+        }
+
+        // Nesting
+        .table {
+            background-color: #fff;
+        }
+    }
+
+    .table-bordered {
+        border: 1px solid #efefef;
+        > thead,
+        > tbody,
+        > tfoot {
+            > tr {
+                > th,
+                > td {
+                    border: 1px solid #efefef;
+                }
+            }
+        }
+        > thead > tr {
+            > th,
+            > td {
+                border-bottom-width: 2px;
+            }
+        }
+    }
+
+    .table-hover {
+        > tbody > tr:hover {
+            background-color: #ddd;
+        }
+    }
+
+    table col[class*="col-"] {
+        position: static;
+        float: none;
+        display: table-column;
+    }
+    table {
+        td,
+        th {
+            &[class*="col-"] {
+                position: static;
+                float: none;
+                display: table-cell;
+            }
+        }
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+        min-height: 0.01%;
+
+        @media screen and (max-width: 720px) {
+            width: 100%;
+            margin-bottom: 0;
+            overflow-y: hidden;
+            -ms-overflow-style: -ms-autohiding-scrollbar;
+            border: 1px solid #efefef;
+
+
+            > .table {
+                margin-bottom: 0;
+
+
+                > thead,
+                > tbody,
+                > tfoot {
+                    > tr {
+                        > th,
+                        > td {
+                            white-space: nowrap;
+                        }
+                    }
+                }
+            }
+
+            > .table-bordered {
+                border: 0;
+
+                > thead,
+                > tbody,
+                > tfoot {
+                    > tr {
+                        > th:first-child,
+                        > td:first-child {
+                            border-left: 0;
+                        }
+                        > th:last-child,
+                        > td:last-child {
+                            border-right: 0;
+                        }
+                    }
+                }
+
+                > tbody,
+                > tfoot {
+                    > tr:last-child {
+                        > th,
+                        > td {
+                            border-bottom: 0;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
 }

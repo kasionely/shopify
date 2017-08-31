@@ -9,7 +9,7 @@ class ManageController extends Controller
 {
     public function getIndex()
     {
-        $products = Product::all()->toArray();
+        $products = Product::orderBy('products.id', 'DESC')->toArray();
 
         return view('manage.index', compact('products'));
     }
@@ -26,13 +26,10 @@ class ManageController extends Controller
         return view('manage.shop.add');
     }
 
-    public function getEdit(Product $product)
+    public function getEdit($id)
     {
-        return view('manage.shop.update', compact('product','id'));
-    }
+        $product = Product::find($id);
 
-    public function getDelete(Product $product)
-    {
-        return view('manage.shop.delete', compact('product', 'id'));
+        return view('manage.shop.update', compact('product','id'));
     }
 }

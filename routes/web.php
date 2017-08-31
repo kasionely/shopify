@@ -35,14 +35,9 @@ Route::group(['namespace' => 'manage', 'prefix' => 'manage'], function()
         'as'   => 'manage.getAdd'
     ]);
 
-    Route::get('shop/edit/{id}',[
+    Route::get('shop/edit/{product}',[
        'uses'  => 'ManageController@getEdit',
        'as'    => 'manage.getEdit'
-    ]);
-
-    Route::get('shop/delete/{id}',[
-       'uses'  => 'ManageController@getDelete',
-       'as'    => 'manage.getDelete'
     ]);
 
     Route::post('shop/created',[
@@ -50,16 +45,14 @@ Route::group(['namespace' => 'manage', 'prefix' => 'manage'], function()
         'as'   => 'manage.store'
     ]);
 
-    Route::post('shop/updated',[
+    Route::post('shop/updated{id}',[
         'uses' => 'ProductController@update',
         'as'   => 'manage.update'
     ]);
 
-    Route::post('shop/deleted',[
+    Route::post('shop/deleted{id}',[
         'uses' => 'ProductController@delete',
         'as'   => 'manage.delete'
     ]);
-
-
 
 });

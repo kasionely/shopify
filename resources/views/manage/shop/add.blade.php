@@ -22,8 +22,11 @@
                     <input type="text" placeholder="Описание" name="price">
                 </div>
                 <div class="some-form-item">
-                    <label for="smFormGroupInput">Путь картинки:</label>
-                    <input type="text" placeholder="url-картинки" name="imagePath">
+                    <label for="smFormGroupInput">Добавить картинку:</label>
+                    <div class="upload-view-btn item-view">
+                        <i class="fa fa-image"></i>
+                        <input type="hidden" name="imagePath">
+                    </div>
                 </div>
                 <div class="some-form-item">
                     <input type="submit" class="btn add-btn">

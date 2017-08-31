@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
-use Illuminate\Http\Request;
-use Intervention\Image\Image;
+use App\Model\Product;
 
 class ProductController extends Controller{
 

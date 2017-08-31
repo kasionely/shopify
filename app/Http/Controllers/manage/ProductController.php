@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Manage;
 
 use App\Http\Controllers\Controller;
-use App\Product;
+use App\Model\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -19,7 +19,7 @@ class ProductController extends Controller
 
         $product->save();
 
-        return redirect('/');
+        return redirect('/manage/shop/list');
     }
 
     public function update(Request $request, $id)
@@ -32,15 +32,16 @@ class ProductController extends Controller
 
         $product->save();
 
-        return redirect('/');
+        return redirect('/manage/shop/list');
 
     }
 
-    public function destroy($id)
+    public function delete($id)
     {
         $product = Product::find($id);
+
         $product->delete();
 
-        return redirect('/');
+        return redirect('/manage/shop/list');
     }
 }
