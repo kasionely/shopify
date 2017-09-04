@@ -17,11 +17,11 @@
             <a href="#" class="compaign-btn">Start a campaign</a>
             <nav role="navigation" class="site-header-links">
                 @if (Auth::user())
-                    <a href="#" class="site-header-link">Profile</a>
-                    <a href="#" class="site-header-link">Manage</a>
+                    <a href="{{ route('user.profile') }}}" class="site-header-link">Профиль</a>
+                    <a href="{{ route('user.logout') }}" class="site-header-link">Выйти</a>
                 @else
-                    <a href="#" class="site-header-link">Sign Up</a>
-                    <a href="#" class="site-header-link">Log In</a>
+                    <a href="{{ route('user.signup') }}" class="site-header-link">Регистрация</a>
+                    <a href="{{ route('user.signin') }}" class="site-header-link">Войти</a>
                 @endif
             </nav>
         </div>

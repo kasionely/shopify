@@ -9,7 +9,7 @@ class ManageController extends Controller
 {
     public function getIndex()
     {
-        $products = Product::orderBy('products.id', 'DESC')->toArray();
+        $products = Product::all()->toArray();
 
         return view('manage.index', compact('products'));
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Manage;
 use App\Http\Controllers\Controller;
 use App\Model\Product;
 use Dotenv\Validator;
+use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\Request;
 use Approached\LaravelImageOptimizer\ImageOptimizer;
 use Intervention\Image\Image;
@@ -38,11 +39,10 @@ class UploadController extends Controller{
             $destinationPath = public_path('/images');
 
             $image->move($destinationPath, $object->stream($image->getClientOriginalExtension(), 70)->__toString());
-
         }
         catch (\Exception $e)
         {
-
+            return 'Image failed to upload';
         }
     }
 }

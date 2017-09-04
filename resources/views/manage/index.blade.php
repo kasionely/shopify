@@ -19,8 +19,8 @@
         integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
         crossorigin="anonymous"></script>
 <script src="https://use.fontawesome.com/b953d657bb.js"></script>
-<script src="/public/js/main.js"></script>
 <script src="/public/js/app.js"></script>
+<script src="/public/js/manage.js"></script>
 @yield('scripts')
 </body>
 </html>

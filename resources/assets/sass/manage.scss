@@ -1,5 +1,6 @@
 //Form
 .manage-page{
+
     .manage-forms{
         margin: 20px;
         width: 500px;
@@ -43,6 +44,18 @@
                 left: 50%;
                 transform: translateY(-50%) translateX(-50%);
             }
+        }
+        .imagePath{
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 118px;
+            margin: 0px;
+            padding: 0px;
+            cursor: pointer;
+            opacity: 0;
+            height: 100%;
         }
     }
     /*Btn Styles*/

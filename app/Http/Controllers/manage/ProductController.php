@@ -5,16 +5,24 @@ namespace App\Http\Controllers\Manage;
 use App\Http\Controllers\Controller;
 use App\Model\Product;
 use Illuminate\Http\Request;
+use Image;
 
 class ProductController extends Controller
 {
     public function store(Request $request)
     {
+        if ($request->hasFile('imagePath')){
+            $image    = $request->file('imagePath');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('images/' . $filename);
+            Image::make($image)->resize(900, 900)->save($location);
+        }
+
         $product = new Product([
             'title'       => $request->get('title'),
             'description' => $request->get('description'),
             'price'       => $request->get('price'),
-            'imagePath'   => $request->get('imagePath')
+            'imagePath'   => $location
         ]);
 
         $product->save();

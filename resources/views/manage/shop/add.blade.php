@@ -7,7 +7,7 @@
 @section('content')
     <div class="flex-container">
         <div class="manage-forms">
-            <form method="post" action="{{ route('manage.store') }}">
+            <form method="post" action="{{ route('manage.store') }}" enctype="multipart/form-data">
                 <div class="some-form-item">
                     {{csrf_field()}}
                     <label for="lgFormGroupInput">Название товара:</label>
@@ -25,7 +25,7 @@
                     <label for="smFormGroupInput">Добавить картинку:</label>
                     <div class="upload-view-btn item-view">
                         <i class="fa fa-image"></i>
-                        <input type="hidden" name="imagePath">
+                        <input type="file" name="imagePath" class="imagePath">
                     </div>
                 </div>
                 <div class="some-form-item">

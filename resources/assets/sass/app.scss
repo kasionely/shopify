@@ -12,6 +12,7 @@
 @import "index";
 @import "login";
 @import "manage";
+@import "categories";
 
 body {
     background: #fff;
@@ -20,6 +21,10 @@ body {
 }
 a {
     text-decoration: none;
+}
+
+*{
+    box-sizing: border-box;
 }
 
 .center {
@@ -95,5 +100,44 @@ a {
 @media (min-width: 1200px) {
     .hidden-lg {
         display: none !important;
+    }
+}
+
+.manage-forms{
+    margin: 20px;
+    width: 500px;
+    height: auto;
+
+    .some-form-item {
+        margin-top: 15px;
+        text-align: left;
+        position: relative;
+
+        label {
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+            clear: both;
+        }
+        input {
+            width: 100%;
+            display: block;
+            padding: 10px;
+            border: solid 1px #ccc;
+            clear: both;
+        }
+    }
+    .register-btn{
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 10px 13px 9px;
+        border-radius: 2px;
+        background-color: #eb1478;
+        border: 2px solid #eb1478;
+        color: #ffffff !important;
+        text-align: center;
     }
 }
