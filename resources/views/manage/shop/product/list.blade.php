@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="container list-page">
-        <a href="{{ route('manage.getAdd') }}" class="btn btn-success">Добавить товар</a>
+        <a href="{{ route('manage.product.add') }}" class="btn btn-success">Добавить Товар</a>
 
         <div class="table-responsive">
             <table class="table">
@@ -25,10 +25,10 @@
                         <td>{{$product['title']}}</td>
                         <td>{{$product['description']}}</td>
                         <td>{{$product['price']}}</td>
-                        <td><a href="{{ route('manage.getEdit', $product['id'])}}"
+                        <td><a href="{{ route('manage.product.edit', $product['id'])}}"
                                class="btn btn-primary">Редактировать</a></td>
                         <td>
-                            <form action="{{ route('manage.delete', $product['id'])}}" method="post">
+                            <form action="{{ route('manage.product.delete', $product['id'])}}" method="post">
                                 {{csrf_field()}}
                                 <input type="submit" class="btn btn-danger" value="Удалить">
                             </form>

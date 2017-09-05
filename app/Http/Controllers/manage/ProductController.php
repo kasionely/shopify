@@ -27,7 +27,7 @@ class ProductController extends Controller
 
         $product->save();
 
-        return redirect('/manage/shop/list');
+        return redirect('/manage/shop/products/list');
     }
 
     public function update(Request $request, $id)
@@ -40,7 +40,7 @@ class ProductController extends Controller
 
         $product->save();
 
-        return redirect('/manage/shop/list');
+        return redirect('/manage/shop/products/list');
 
     }
 
@@ -50,6 +50,6 @@ class ProductController extends Controller
 
         $product->delete();
 
-        return redirect('/manage/shop/list');
+        return redirect('/manage/shop/products/list');
     }
 }

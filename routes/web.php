@@ -25,34 +25,64 @@ Route::group(['namespace' => 'manage', 'prefix' => 'manage'], function()
         'as'   => 'manage.index'
     ]);
 
-    Route::get('shop/list',[
+    Route::get('shop/products/list',[
         'uses' => 'ManageController@getList',
-        'as'   => 'manage.getList'
+        'as'   => 'manage.product.list'
     ]);
 
-    Route::get('shop/add',[
+    Route::get('shop/products/add',[
         'uses' => 'ManageController@getAdd',
-        'as'   => 'manage.getAdd'
+        'as'   => 'manage.product.add'
     ]);
 
-    Route::get('shop/edit/{product}',[
+    Route::get('shop/products/edit/{product}',[
        'uses'  => 'ManageController@getEdit',
-       'as'    => 'manage.getEdit'
+       'as'    => 'manage.product.edit'
     ]);
 
-    Route::post('shop/created',[
+    Route::get('shop/category/list',[
+       'uses'  => 'ManageController@getCategoryList',
+       'as'    => 'manage.category.list'
+    ]);
+
+    Route::get('shop/category/add', [
+       'uses'  => 'ManageController@getCategoryAdd',
+       'as'    => 'manage.category.add'
+    ]);
+
+    Route::get('shop/category/edit/{category}', [
+       'uses'  => 'ManageController@getCategoryEdit',
+       'as'    => 'manage.category.edit'
+    ]);
+
+    Route::post('shop/products/created',[
         'uses' => 'ProductController@store',
-        'as'   => 'manage.store'
+        'as'   => 'manage.product.store'
     ]);
 
-    Route::post('shop/updated{id}',[
+    Route::post('shop/products/updated{id}',[
         'uses' => 'ProductController@update',
-        'as'   => 'manage.update'
+        'as'   => 'manage.product.update'
     ]);
 
-    Route::post('shop/deleted{id}',[
+    Route::post('shop/products/deleted{id}',[
         'uses' => 'ProductController@delete',
-        'as'   => 'manage.delete'
+        'as'   => 'manage.product.delete'
+    ]);
+
+    Route::post('shop/category/created',[
+       'uses'  => 'CategoryController@store',
+       'as'    => 'manage.category.store'
+    ]);
+
+    Route::post('shop/category/updated{id}',[
+       'uses'  => 'CategoryController@update',
+       'as'    => 'manage.category.update'
+    ]);
+
+    Route::post('shop/category/deleted{id}',[
+       'uses'  => 'CategoryController@deleted',
+       'as'    => 'manage.category.delete'
     ]);
 });
 
@@ -60,22 +90,22 @@ Route::group(['prefix' => 'user'], function()
 {
     Route::get('/signup', [
         'uses' => 'UserController@getSignup',
-        'as'   => 'user.signup'
+        'as'   => 'user.register'
     ]);
 
     Route::post('/signup', [
         'uses' => 'UserController@postSignup',
-        'as'   => 'user.signup'
+        'as'   => 'user.register'
     ]);
 
     Route::get('/login', [
         'uses' => 'UserController@getLogin',
-        'as'   => 'user.signin'
+        'as'   => 'user.login'
     ]);
 
     Route::post('/login', [
         'uses' => 'UserController@Login',
-        'as'   => 'user.signin'
+        'as'   => 'user.login'
     ]);
 
     Route::get('/profile', [

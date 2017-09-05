@@ -20,8 +20,8 @@
                     <a href="{{ route('user.profile') }}}" class="site-header-link">Профиль</a>
                     <a href="{{ route('user.logout') }}" class="site-header-link">Выйти</a>
                 @else
-                    <a href="{{ route('user.signup') }}" class="site-header-link">Регистрация</a>
-                    <a href="{{ route('user.signin') }}" class="site-header-link">Войти</a>
+                    <a href="{{ route('user.register') }}" class="site-header-link">Регистрация</a>
+                    <a href="{{ route('user.login') }}" class="site-header-link">Войти</a>
                 @endif
             </nav>
         </div>
