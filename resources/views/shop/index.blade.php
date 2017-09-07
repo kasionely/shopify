@@ -20,9 +20,8 @@
                                 <div class="card-content">
                                     <h3>{{ $product->title }}</h3>
                                     <p class="description">{{ $product->description }}</p>
-                                    <div class="clearfix">
-                                        <div class="pull-left price">${{ $product->price }}</div>
-                                    </div>
+                                    <div class="price">${{ $product->price }}</div>
+                                    <a href="{{ route('basket.added', ['id' => $product->id]) }}" class="btn btn-add-to-cart">Добавить к корзину</a>
                                 </div>
                             </div>
                         @endforeach

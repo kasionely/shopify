@@ -14,10 +14,12 @@
             </div>
         </div>
         <div class="site-header-content-right">
-            <a href="#" class="compaign-btn">Start a campaign</a>
+            <a href="{{ route('basket.list') }}" class="compaign-btn">Корзина
+                <span class="counter"> {{ Session::has('basket') ? Session::get('basket')->totalQty : '' }}</span>
+            </a>
             <nav role="navigation" class="site-header-links">
                 @if (Auth::user())
-                    <a href="{{ route('user.profile') }}}" class="site-header-link">Профиль</a>
+                    <a href="{{ route('user.profile') }}" class="site-header-link">Профиль</a>
                     <a href="{{ route('user.logout') }}" class="site-header-link">Выйти</a>
                 @else
                     <a href="{{ route('user.register') }}" class="site-header-link">Регистрация</a>

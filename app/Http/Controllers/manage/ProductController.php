@@ -11,18 +11,21 @@ class ProductController extends Controller
 {
     public function store(Request $request)
     {
+        $imagePath = null;
+
         if ($request->hasFile('imagePath')){
             $image    = $request->file('imagePath');
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $location = public_path('images/' . $filename);
-            Image::make($image)->resize(900, 900)->save($location);
+            $imagePath = ('images/' . $filename);
+            Image::make($image)->resize(900, 900)->save($imagePath);
         }
 
         $product = new Product([
             'title'       => $request->get('title'),
             'description' => $request->get('description'),
             'price'       => $request->get('price'),
-            'imagePath'   => $location
+            'imagePath'   => $imagePath
         ]);
 
         $product->save();

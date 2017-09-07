@@ -3,27 +3,35 @@
 namespace App\Http\Controllers;
 
 use App\Model\User;
+use App\Model\Order;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Auth;
 
 class UserController extends Controller
 {
     public function getSignup()
     {
-        return view('shop.profile.signup');
+        return view('shop.profile.register');
     }
 
     public function getProfile(){
-        return view('shop.profile.profile');
+        $orders = Auth::user()->orders;
+
+        $orders->transform(function ($order, $key){
+            $order->basket = unserialize($order->basket);
+            return $order;
+        });
+//        dd($orders);
+        return view('shop.profile.index', ['orders' => $orders]);
     }
 
     public function getLogout(){
         Auth::logout();
-        return redirect()->back();
+        return redirect()->route('shop.index');
     }
 
     public function getLogin(){
-        return view('shop.profile.signin');
+        return view('shop.profile.login');
     }
 
     public function postSignup(Request $request)
@@ -37,23 +45,25 @@ class UserController extends Controller
         ]);
 
         $user = new User([
-            'email'     => $request->input('email'),
-            'password'  => bcrypt($request->input('password')),
-            'firstname' => $request->input('firstname'),
-            'lastname'  => $request->input('lastname'),
-            'phone'     => $request->input('phone')
+           'email'     => $request->input('email'),
+           'password'  => bcrypt($request->input('password')),
+           'firstname' => $request->input('firstname'),
+           'lastname'  => $request->input('lastname'),
+           'phone'     => $request->input('phone')
         ]);
+
+        Auth::login($user);
 
         $user->save();
 
-        return redirect()->route('shop.index');
+        return redirect()->route('user.profile');
     }
 
-    public function Login(Request $request){
-
+    public function Login(Request $request)
+    {
         $this->validate($request,[
-            'email'     => 'required|max:255|unique:users',
-            'password'  => 'required|min:4'
+            'email'     => 'required',
+            'password'  => 'required'
         ]);
 
         if (Auth::attempt([
@@ -64,6 +74,6 @@ class UserController extends Controller
             return redirect()->route('user.profile');
         }
 
-        return redirect()->back();
+        return redirect()->route('shop.index');
     }
 }

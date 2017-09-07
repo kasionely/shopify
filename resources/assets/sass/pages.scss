@@ -1,0 +1,227 @@
+//Login-page
+.login-page {
+    padding-top: 2rem;
+
+    h2 {
+        font-size: 24px;
+        line-height: 26px;
+        margin-bottom: 28px;
+    }
+
+    .login, .if-not-register {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    .login {
+        border-right: 1px solid #dfdfdf;
+    }
+    .register-btn {
+        width: 100%;
+        text-decoration: none;
+        background-color: #ed1c24;
+
+        &:hover {
+            background-color: #b11116;
+            border-color: #b11116;
+        }
+    }
+}
+//Basket-page
+.basket-page {
+    .basket {
+        width: 600px;
+        margin: 20px 0;
+        padding: 20px;
+
+        .basket-header {
+            padding: 12px 16px 14px 16px;
+            overflow: hidden;
+            background: -webkit-linear-gradient(top, #4ca9e2 1%, #1d7cb7 100%);
+            box-shadow: inset 0 1px 0 #72b3d3, inset 0 -1px 0 #155f8e;
+            border-radius: 4px 4px 0 0;
+            color: #d4f1ff;
+            text-align: left;
+        }
+
+        .basket-list {
+            width: 100%;
+            border-radius: 4px 4px 0 0;
+            transition: all 0.4s;
+            position: relative;
+            color: #495860;
+            border: 1px solid #efefef;
+            box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0);
+
+            ul {
+                list-style: none;
+                position: relative;
+                display: block;
+                padding: 0;
+                margin: 0;
+            }
+            li {
+                padding: 10px 15px;
+                overflow: hidden;
+                background-color: #fff;
+                transition: all 0.3s;
+
+                a {
+                    color: #495860;
+                    text-decoration: none;
+                    border-color: #666;
+                    border-bottom: 1px dotted rgba(0, 0, 0, 0.6);
+                }
+
+                &:hover {
+                    box-shadow: inset 0 15px 20px #f7f7f7;
+                }
+            }
+            span {
+                display: block;
+                float: left;
+            }
+            strong {
+                display: block;
+                float: right;
+                margin-right: 40px;
+            }
+            .btn-delete {
+                float: right;
+                color: #ec3a3a;
+                text-align: center;
+                background-color: #fff;
+                text-decoration: none;
+                border: none;
+            }
+        }
+        .basket-price {
+            overflow: hidden;
+            padding: 10px 5px;
+
+            span {
+                float: left;
+            }
+            .btn-checkout {
+                float: right;
+                color: #fff;
+                padding: 6px 14px 8px 14px;
+                font-weight: bold;
+                text-decoration: none;
+                background: -webkit-linear-gradient(top, #00cc73 20%, #009c58 100%);
+                border-radius: 4px;
+            }
+        }
+    }
+}
+//Checkout-page
+.checkout-page{
+    background-color: #f5f8fa;;
+
+    h1{
+        margin: 0;
+    }
+    h4{
+        margin: 0;
+    }
+    .panel{
+        background-color: #fff;
+        border: 1px solid #d3e0e9;
+        border-radius: 4px;
+        box-shadow: 0 1px 1px rgba(0,0,0,.05);
+        margin: 20px 0;
+    }
+
+    .panel-heading{
+        background-color: #fff;
+        padding: 10px 15px;
+        border-bottom: 1px solid #d3e0e9;;
+        border-top-right-radius: 3px;
+        border-top-left-radius: 3px;
+    }
+    .panel-body{
+        padding: 15px;
+    }
+
+    .cash-radio, .card-radio{
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        margin: 10px;
+
+        span{
+            display: block;
+        }
+    }
+
+    .manage-forms{
+        margin: 0;
+    }
+
+    .radio{
+        width: 130px;
+        height: 130px;
+        color: #616161;
+        border: 1px solid #D8D8D8;
+        display: inline-block;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 5px;
+    }
+    input[type="radio"]
+    {
+        position: absolute;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+    textarea{
+        width: 100%;
+    }
+
+    .inline-wrapper{
+        display: inline-block;
+        vertical-align: middle;
+        padding: 35px 10px;
+
+        .fa{
+            font-size: 32px;
+        }
+    }
+    .radio-input:checked+.radio{
+        color: #1DA060;
+        border-color: #1DA060;
+    }
+}
+//Profile-page
+.profile-page{
+    h2{
+        margin: 0;
+    }
+    p{
+        margin: 5px 0;
+    }
+    .panel{
+        width: 500px;
+        margin-top: 20px;
+    }
+    .order-detail, .order-view{
+        display: inline-block;
+        width: 50%;
+        height: 100px;
+    }
+    .order-view{
+        img{
+            max-width: 100%;
+        }
+    }
+    .item-name{
+        strong{
+            color: #000;
+            border-bottom: 1px dotted #f7f7f7;
+        }
+        a{
+
+        }
+    }
+}

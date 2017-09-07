@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ URL::to('css/app.css') }}">
-    <link rel="stylesheet" href="/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="{{ URL::to('css/owl.css') }}">
     @yield('styles')
 </head>
 <body>
@@ -17,8 +17,8 @@
         integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
         crossorigin="anonymous"></script>
 <script src="https://use.fontawesome.com/b953d657bb.js"></script>
-<script src="/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
-<script src="/public/js/main.js"></script>
+<script src="js/nodes.js"></script>
+<script src="js/main.js"></script>
 @yield('scripts')
 </body>
 </html>

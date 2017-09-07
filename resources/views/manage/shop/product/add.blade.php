@@ -7,7 +7,7 @@
 @section('content')
     <div class="flex-container">
         <div class="manage-forms">
-            <form method="post" action="{{ route('manage.store') }}" enctype="multipart/form-data">
+            <form method="post" action="{{ route('manage.product.store') }}" enctype="multipart/form-data">
                 <div class="some-form-item">
                     {{csrf_field()}}
                     <label for="lgFormGroupInput">Название товара:</label>

@@ -88,33 +88,63 @@ Route::group(['namespace' => 'manage', 'prefix' => 'manage'], function()
 
 Route::group(['prefix' => 'user'], function()
 {
-    Route::get('/signup', [
-        'uses' => 'UserController@getSignup',
-        'as'   => 'user.register'
+    Route::group(['middleware' => 'guest'], function (){
+
+        Route::get('/register', [
+            'uses' => 'UserController@getSignup',
+            'as'   => 'user.register'
+        ]);
+
+        Route::get('/login', [
+            'uses' => 'UserController@getLogin',
+            'as'   => 'user.login'
+        ]);
+
+        Route::post('/register', [
+            'uses' => 'UserController@postSignup',
+            'as'   => 'user.register'
+        ]);
+
+        Route::post('/login', [
+            'uses' => 'UserController@Login',
+            'as'   => 'user.login'
+        ]);
+    });
+
+    Route::group(['middleware' => 'auth'], function (){
+
+        Route::get('/profile', [
+            'uses' => 'UserController@getProfile',
+            'as'   => 'user.profile'
+        ]);
+
+        Route::get('/logout',[
+            'uses' => 'UserController@getLogout',
+            'as'   => 'user.logout'
+        ]);
+
+    });
+});
+
+Route::group(['prefix' => 'basket'], function()
+{
+    Route::get('list',[
+       'uses' => 'ProductController@getBasketList',
+       'as'   => 'basket.list'
     ]);
 
-    Route::post('/signup', [
-        'uses' => 'UserController@postSignup',
-        'as'   => 'user.register'
+    Route::get('added{id}', [
+       'uses' => 'ProductController@getBasketAdded',
+       'as'   => 'basket.added'
     ]);
 
-    Route::get('/login', [
-        'uses' => 'UserController@getLogin',
-        'as'   => 'user.login'
+    Route::get('checkout',[
+       'uses' => 'ProductController@getCheckout',
+       'as'   => 'basket.checkout'
     ]);
 
-    Route::post('/login', [
-        'uses' => 'UserController@Login',
-        'as'   => 'user.login'
-    ]);
-
-    Route::get('/profile', [
-        'uses' => 'UserController@getProfile',
-        'as'   => 'user.profile'
-    ]);
-
-    Route::get('/logout',[
-        'uses' => 'UserController@getLogout',
-        'as'   => 'user.logout'
+    Route::post('checkout',[
+       'uses' => 'ProductController@checkout',
+       'as'   => 'basket.checkout'
     ]);
 });

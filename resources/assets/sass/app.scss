@@ -10,12 +10,12 @@
 @import "navbar";
 @import "carousel";
 @import "index";
-@import "login";
+@import "pages";
 @import "manage";
 @import "categories";
 
 body {
-    background: #fff;
+    background: #f4f6f8;
     font-family: 'Open Sans', sans-serif;
     margin: 0;
 }
@@ -104,7 +104,6 @@ a {
 }
 
 .manage-forms{
-    margin: 20px;
     width: 500px;
     height: auto;
 
@@ -119,7 +118,14 @@ a {
             display: block;
             clear: both;
         }
-        input {
+        input[type="text"] {
+            width: 100%;
+            display: block;
+            padding: 10px;
+            border: solid 1px #ccc;
+            clear: both;
+        }
+        input[type="password"] {
             width: 100%;
             display: block;
             padding: 10px;
@@ -127,17 +133,36 @@ a {
             clear: both;
         }
     }
-    .register-btn{
-        font-weight: bold;
-        font-size: 12px;
-        line-height: 12px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        padding: 10px 13px 9px;
-        border-radius: 2px;
-        background-color: #eb1478;
-        border: 2px solid #eb1478;
-        color: #ffffff !important;
-        text-align: center;
-    }
+}
+.register-btn{
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 13px 9px;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #eb1478;
+    border: 2px solid #eb1478;
+    color: #ffffff !important;
+    text-align: center;
+}
+.panel{
+    background-color: #fff;
+    border: 1px solid #d3e0e9;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.panel-heading{
+    background-color: #fff;
+    padding: 10px 15px;
+    border-bottom: 1px solid #d3e0e9;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+.panel-body{
+    padding: 15px;
 }
