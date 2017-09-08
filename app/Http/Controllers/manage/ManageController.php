@@ -5,11 +5,14 @@ namespace App\Http\Controllers\Manage;
 use App\Http\Controllers\Controller;
 use App\Model\Product;
 use App\Model\Category;
+use Illuminate\Support\Facades\Auth;
 
 class ManageController extends Controller
 {
     public function getIndex()
     {
+        $admin = Auth::guard('admin')->user();
+
         $products = Product::all()->toArray();
 
         return view('manage.index', compact('products'));

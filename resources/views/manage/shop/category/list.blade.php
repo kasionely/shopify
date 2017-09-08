@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="container list-page">
+    <div class="list-page">
         <a href="{{ route('manage.category.add') }}" class="btn btn-success">Добавить Категорию</a>
 
         <div class="table-responsive">

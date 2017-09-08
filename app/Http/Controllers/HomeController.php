@@ -7,10 +7,13 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller{
 
-    public function index()
+    public function index(Request $request, Product $products)
     {
-        $products = Product::paginate(8);
+        $product = Product::all();
 
-        return view('shop.index', ['products' => $products]);
+        return view('shop.index', [
+            'products' => $product,
+            'slugs'     => $products->getSlug()
+        ]);
     }
 }

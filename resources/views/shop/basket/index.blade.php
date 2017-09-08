@@ -17,7 +17,7 @@
                                 <span class=>{{ $product['qty'] }}x
                                     <a href="#">{{ $product['item']['title'] }}</a>
                                 </span>
-                                    <a href="#" class="btn btn-delete"><i class="fa fa-times-circle"></i></a>
+                                    <a href="{{ route('basket.delete', ['id' => $product['item']['id']]) }}" class="btn btn-delete"><i class="fa fa-times-circle"></i></a>
                                     <strong>{{ $product['price'] }} тенге</strong>
                                 </li>
                             </ul>

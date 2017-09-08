@@ -11,11 +11,12 @@ use Auth;
 
 class ProductController extends Controller{
 
-    public function getIndex()
+    public function getIndex(Request $request, Product $products)
     {
-        $products = Product::paginate(8);
-
-        return view('shop.index', ['products' => $products]);
+        return view('shop.index', [
+            'products' => $products,
+            'slugs'     => $products->getSlug()
+        ]);
     }
 
     public function getBasketAdded(Request $request, $id)
@@ -28,6 +29,17 @@ class ProductController extends Controller{
 
         $request->session()->put('basket', $basket);
         return redirect()->route('shop.index');
+    }
+
+    public function basketDelete($id)
+    {
+        $oldCart = Session::has('basket') ? Session::get('basket') : null;
+        $basket = new Basket($oldCart);
+        $basket->deleteItem($id);
+
+        Session::put('basket', $basket);
+
+        return redirect()->route('basket.list');
     }
 
     public function getBasketList()
@@ -84,5 +96,10 @@ class ProductController extends Controller{
         {
             return redirect()->route('shop.index')->with('success', 'Ваша заявка успешно оформлена');
         }
+    }
+
+    public function view(Request $request, Product $products)
+    {
+
     }
 }

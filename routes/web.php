@@ -16,13 +16,32 @@ Route::get('/', [
     'as'   => 'shop.index'
 ]);
 
-//Route::get('/manage', 'ManageManageController@getIndex');
+Route::any('/product/{slug}', 'ProductController@view');
 
-Route::group(['namespace' => 'manage', 'prefix' => 'manage'], function()
+Route::group(['namespace' => 'manage', 'prefix' => 'admin'], function (){
+
+    Route::get('/login',[
+        'uses' => 'LoginController@getLogin',
+        'as'   => 'manage.login'
+    ]);
+
+    Route::post('/login',[
+        'uses'  => 'LoginController@login',
+        'as'    => 'manage.login'
+    ]);
+
+});
+
+Route::group(['middleware' => 'admin', 'namespace' => 'manage', 'prefix' => 'manage'], function()
 {
-    Route::get('/',[
-        'uses' => 'ManageController@getIndex',
-        'as'   => 'manage.index'
+    Route::get('/index',[
+       'uses'  => 'ManageController@getIndex',
+       'as'    => 'manage.index'
+    ]);
+
+    Route::get('/logout',[
+       'uses'  => 'LoginController@logout',
+       'as'    => 'manage.logout'
     ]);
 
     Route::get('shop/products/list',[
@@ -136,6 +155,11 @@ Route::group(['prefix' => 'basket'], function()
     Route::get('added{id}', [
        'uses' => 'ProductController@getBasketAdded',
        'as'   => 'basket.added'
+    ]);
+
+    Route::get('/delete{id}',[
+       'uses' => 'ProductController@basketDelete',
+       'as'   => 'basket.delete'
     ]);
 
     Route::get('checkout',[

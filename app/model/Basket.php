@@ -32,4 +32,10 @@ class Basket
         $this->totalQty++;
         $this->totalPrice += $item->price;
     }
+    public function deleteItem($id)
+    {
+        $this->totalQty -= $this->items[$id]['qty'];
+        $this->totalPrice -= $this->items[$id]['price'];
+        unset($this->items[$id]);
+    }
 }
