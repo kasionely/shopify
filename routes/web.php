@@ -16,7 +16,7 @@ Route::get('/', [
     'as'   => 'shop.index'
 ]);
 
-Route::any('/product/{slug}', 'ProductController@view');
+Route::any('/product/{id}', 'ProductController@view');
 
 Route::group(['namespace' => 'manage', 'prefix' => 'admin'], function (){
 

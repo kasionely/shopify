@@ -22,6 +22,10 @@
                     <input type="text" placeholder="Описание" name="price">
                 </div>
                 <div class="some-form-item">
+                    <label for="smFormGroupInput">Характеристики товара:</label>
+                    <textarea id="my-editor" name="description" class="form-control"></textarea>
+                </div>
+                <div class="some-form-item">
                     <label for="smFormGroupInput">Добавить картинку:</label>
                     <div class="upload-view-btn item-view">
                         <i class="fa fa-image"></i>

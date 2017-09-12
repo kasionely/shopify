@@ -98,7 +98,20 @@ class ProductController extends Controller{
         }
     }
 
-    public function view(Request $request, Product $products)
+    public function view(Request $request, Product $products, $id)
+    {
+        $product = $products->find($id);
+
+        $slugs = $products->getSlug();
+
+        return view('shop.chunks.item', [
+            'product' => $product,
+            'slug'    => $slugs
+        ]);
+
+    }
+
+    public function product(Request $request)
     {
 
     }

@@ -4,11 +4,11 @@
 .categories{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
 }
 .category{
     width: 220px;
-    margin: 0 20px 30px 20px;
+    margin-bottom: 15px;
     min-height: 220px;
 }
 .category-content{
