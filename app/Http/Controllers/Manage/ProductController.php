@@ -22,10 +22,11 @@ class ProductController extends Controller
         }
 
         $product = new Product([
-            'title'       => $request->get('title'),
-            'description' => $request->get('description'),
-            'price'       => $request->get('price'),
-            'imagePath'   => $imagePath
+            'title'              => $request->get('title'),
+            'little_description' => $request->get('little_description'),
+            'description'        => $request->get('description'),
+            'price'              => $request->get('price'),
+            'imagePath'          => $imagePath
         ]);
 
         $product->save();
@@ -36,10 +37,11 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $product = Product::find($id);
-        $product->title        = $request->get('title');
-        $product->description  = $request->get('description');
-        $product->price        = $request->get('price');
-        $product->imagePath    = $request->get('imagePath');
+        $product->title              = $request->get('title');
+        $product->little_description = $request->get('little_description');
+        $product->description        = $request->get('description');
+        $product->price              = $request->get('price');
+        $product->imagePath          = $request->get('imagePath');
 
         $product->save();
 

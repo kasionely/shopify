@@ -17,12 +17,12 @@
             </div>
             <div class="product-content">
                 <div class="product-description">
-                    {{ $product->description  }}
+                    {!! $product->little_description !!}
                 </div>
             </div>
             <div class="product-action">
                 <div class="product-price">
-                    {{ $product->price }} ₸
+                    {{ $product->price }}
                 </div>
                 <a href="" class="btn buy-btn">Добавить в корзину</a>
                 <a href="" class="btn buy-one-click">Купить в один клик</a>
@@ -36,8 +36,28 @@
                 </div>
             </div>
         </div>
-        <div class="flex-container">
+        <div class="delitimer"></div>
+        <div class="flex-container padding-none">
+            <div class="tabs">
+                <ul class="tabs-list">
+                    <li data-target="about" class="tabs-link active">О товаре</li>
+                    <li data-target="character" class="tabs-link">Характеристики</li>
+                    {{--<li data-target="reviews" class="tabs-link">Отзывы</li>--}}
+                </ul>
+            </div>
+            <div class="tabs-block">
+                <div class="tabs-block-container">
+                    <div class="tabs-block-content product-tab-about active">
+                        {!! $product->description !!}
+                    </div>
+                    <div class="tabs-block-content product-tab-character">
 
+                    </div>
+                    {{--<div class="tabs-block-content product-tab-reviews">--}}
+
+                    {{--</div>--}}
+                </div>
+            </div>
         </div>
     </div>
 @endsection

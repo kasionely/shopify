@@ -23,7 +23,7 @@
         integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
         crossorigin="anonymous"></script>
 <script src="https://use.fontawesome.com/b953d657bb.js"></script>
-<script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+{{--<script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>--}}
 <script src="/js/app.js"></script>
 <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
 <script>
@@ -35,7 +35,8 @@
     };
 </script>
 <script>
-    CKEDITOR.replace('my-editor', options);
+    CKEDITOR.replace('little_description', options);
+    CKEDITOR.replace('description', options);
 </script>
 <script src="/js/manage.js"></script>
 @yield('scripts')

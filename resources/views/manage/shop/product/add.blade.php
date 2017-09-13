@@ -14,16 +14,16 @@
                     <input type="text" placeholder="Название" name="title">
                 </div>
                 <div class="some-form-item">
-                    <label for="smFormGroupInput">Описание товара:</label>
-                    <input type="text" placeholder="Описание" name="description">
+                    <label for="smFormGroupInput">Краткое описание:</label>
+                    <textarea id="little_description" name="little_description" class="form-control my-editor"></textarea>
                 </div>
                 <div class="some-form-item">
                     <label for="smFormGroupInput">Цена товара:</label>
                     <input type="text" placeholder="Описание" name="price">
                 </div>
                 <div class="some-form-item">
-                    <label for="smFormGroupInput">Характеристики товара:</label>
-                    <textarea id="my-editor" name="description" class="form-control"></textarea>
+                    <label for="smFormGroupInput">Описание товара:</label>
+                    <textarea id="description" name="description" class="form-control my-editor"></textarea>
                 </div>
                 <div class="some-form-item">
                     <label for="smFormGroupInput">Добавить картинку:</label>

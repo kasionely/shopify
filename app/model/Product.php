@@ -6,7 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $fillable = ['imagePath', 'title', 'description', 'price', 'slug'];
+    protected $table = 'products';
+
+    protected $fillable = ['imagePath', 'title','little_description', 'description', 'price', 'slug'];
+
+    public function getProductId()
+    {
+        return $this->id;
+    }
 
     public function getProductName()
     {
@@ -15,10 +22,6 @@ class Product extends Model
 
     public function getSlug()
     {
-        $slug = NULL;
-
-        $slug = translit_link($this->getProductName());
-
-        return $slug;
+        return translit_link($this->getProductName());
     }
 }
