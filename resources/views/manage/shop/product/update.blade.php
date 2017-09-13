@@ -14,12 +14,16 @@
                     <input type="text" placeholder="{{ $product['title'] }}" name="title">
                 </div>
                 <div class="some-form-item">
-                    <label for="smFormGroupInput">Описание товара:</label>
-                    <input type="text" placeholder="{{ $product['description'] }}" name="description">
+                    <label for="smFormGroupInput">Краткое описание:</label>
+                    <textarea id="little_description" name="little_description" class="form-control my-editor">{{ $product['little_description'] }}</textarea>
                 </div>
                 <div class="some-form-item">
                     <label for="smFormGroupInput">Цена товара:</label>
                     <input type="text" placeholder="{{ $product['price'] }}" name="price">
+                </div>
+                <div class="some-form-item">
+                    <label for="smFormGroupInput">Описание товара:</label>
+                    <textarea id="description" name="description" class="form-control my-editor">{{ $product['description'] }}</textarea>
                 </div>
                 <div class="some-form-item">
                     <label for="smFormGroupInput">Добавить картинку:</label>
