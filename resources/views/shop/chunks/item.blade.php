@@ -24,7 +24,7 @@
                 <div class="product-price">
                     {{ $product->price }}
                 </div>
-                <a href="" class="btn buy-btn">Добавить в корзину</a>
+                <a href="{{ route('basket.added', ['id' => $product->id]) }}" class="btn buy-btn">Добавить в корзину</a>
                 <a href="" class="btn buy-one-click">Купить в один клик</a>
                 <div class="product-info-section">
                     <a href="" class="product-link">Доставка курьеров</a>
