@@ -1,3 +1,5 @@
+$mobile: 768px;
+
 .site-header{
     border-bottom: 1px solid #ddd;
     background-color: #fff;
@@ -8,13 +10,23 @@
     padding: 0 20px;
     max-width: 1440px;
     display: flex;
+    flex-direction: row;
     white-space: nowrap;
     align-items: center;
     justify-content: space-between;
+
+    @media screen and(max-width: $mobile) {
+        padding: 10px;
+    }
 }
 .site-header-content-left{
     display: flex;
     align-items: center;
+
+    @media screen and(max-width: $mobile) {
+        width: 100%;
+        justify-content: space-between;
+    }
 }
 .site-header-logo{
     display: inline-flex;
@@ -25,6 +37,10 @@
     position: relative;
     display: inline-flex;
     align-items: center;
+
+    @media screen and(max-width: $mobile) {
+        display: none;
+    }
 }
 .site-header-link{
     font-weight: bold;
@@ -42,12 +58,21 @@
     margin-left: 30px;
     display: inline-flex;
     vertical-align: middle;
+
+    @media screen and(max-width: $mobile) {
+        width: 100%;
+        margin-left: 15px;
+    }
 }
 .site-header-search-form{
     min-width: 10em;
     min-height: 35px;
     display: block;
     position: relative;
+
+    @media screen and(max-width: $mobile) {
+        min-width: 100%;
+    }
 }
 .search-field{
     width: 10em;
@@ -56,6 +81,10 @@
     padding: 5px 15px;
     border: 1px solid #ddd;
     background-color: #fff;
+
+    @media screen and(max-width: $mobile) {
+        width: 100%;
+    }
 }
 .site-header-content-right{
     display: flex;

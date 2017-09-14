@@ -79,6 +79,11 @@ Route::group(['middleware' => 'admin', 'namespace' => 'manage', 'prefix' => 'man
         'as'   => 'manage.product.store'
     ]);
 
+    Route::any('shop/products/image.json',[
+        'uses' => 'ProductController@image',
+        'as'   => 'manage.product.image'
+    ]);
+
     Route::post('shop/products/updated{id}',[
         'uses' => 'ProductController@update',
         'as'   => 'manage.product.update'

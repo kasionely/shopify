@@ -15,6 +15,11 @@ class Product extends Model
         return $this->id;
     }
 
+    public function gallery()
+    {
+        return $this->hasMany('App\Model\Gallery', 'product_id', 'id')->cacheTags($this->getcacheTag())->remember(60);
+    }
+
     public function getProductName()
     {
         return $this->title;

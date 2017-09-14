@@ -7,7 +7,8 @@
 @section('content')
     <div class="flex-container">
         <div class="manage-forms">
-            <form method="post" action="{{ route('manage.product.store') }}" enctype="multipart/form-data">
+            <form method="post" action="{{ route('manage.product.store') }}" enctype="multipart/form-data"
+                  class="add-form">
                 <div class="some-form-item">
                     {{csrf_field()}}
                     <label for="lgFormGroupInput">Название товара:</label>
@@ -15,7 +16,8 @@
                 </div>
                 <div class="some-form-item">
                     <label for="smFormGroupInput">Краткое описание:</label>
-                    <textarea id="little_description" name="little_description" class="form-control my-editor"></textarea>
+                    <textarea id="little_description" name="little_description"
+                              class="form-control my-editor"></textarea>
                 </div>
                 <div class="some-form-item">
                     <label for="smFormGroupInput">Цена товара:</label>
@@ -27,9 +29,13 @@
                 </div>
                 <div class="some-form-item">
                     <label for="smFormGroupInput">Добавить картинку:</label>
-                    <div class="upload-view-btn item-view">
-                        <i class="fa fa-image"></i>
-                        <input type="file" name="imagePath" class="imagePath">
+                    <div class="product-gallery-wrap">
+                        <div class="upload-view-btn item-view"
+                             data-action="{{ route('manage.product.image') }}"
+                             data-name="image"
+                             data-input="imagePath[]">
+                            <i class="fa fa-image"></i>
+                        </div>
                     </div>
                 </div>
                 <div class="some-form-item">

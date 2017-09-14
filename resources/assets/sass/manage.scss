@@ -331,12 +331,33 @@
             background-size: cover;
             background-position: center;
             border-radius: 5px;
+            margin-right: 20px;
+            margin-top: 20px;
+            position: relative;
+            display: inline-flex;
 
-            i {
+            .fa-image {
                 font-size: 28px;
                 position: absolute;
                 top: 50%;
                 left: 50%;
+                transform: translateY(-50%) translateX(-50%);
+            }
+            .fa-close{
+                cursor: pointer;
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                text-decoration: none;
+                background-color: #eee;
+                border-radius: 20px;
+                display: block;
+                font-size: 18px;
+                color: #999;
+                position: absolute;
+                top: 5px;
+                right: -20px;
                 transform: translateY(-50%) translateX(-50%);
             }
         }
@@ -346,8 +367,8 @@
             right: 0;
             top: 0;
             font-size: 118px;
-            margin: 0px;
-            padding: 0px;
+            margin: 0;
+            padding: 0;
             cursor: pointer;
             opacity: 0;
             height: 100%;

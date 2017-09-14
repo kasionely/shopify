@@ -6,7 +6,9 @@
  */
 
 require('./bootstrap');
-var uploader = require('fine-uploader');
+var qq = require('fine-uploader');
+var Sortable = require('sortablejs');
+var Select2  = require('select2');
 
 window.Vue = require('vue');
 

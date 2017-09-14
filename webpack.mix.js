@@ -22,7 +22,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
 
 mix.scripts([
-   "node_modules/owl.carousel/dist/owl.carousel.min.js"
+   "node_modules/owl.carousel/dist/owl.carousel.min.js",
 ], 'public/js/nodes.js', './');
 
 mix.styles([

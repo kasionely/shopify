@@ -21,7 +21,9 @@
   "dependencies": {
     "fine-uploader": "^5.15.0",
     "owl.carousel": "^2.2.0",
+    "select2": "^4.0.3",
     "slick-carousel": "^1.7.1",
+    "sortablejs": "^1.6.1",
     "yarn": "^0.27.5"
   }
 }
