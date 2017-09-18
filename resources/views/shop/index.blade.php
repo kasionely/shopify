@@ -14,8 +14,8 @@
                     @foreach($products as $product)
                         <div class="card">
                             <a href="{{ action('ProductController@view', ['slug' => $product->getSlug(), 'product' => $product]) }}" title="{{ $product->getProductName() }}" class="card-link"></a>
-                            <div class="card-image">
-                                <img src="{{ $product->imagePath }}" alt="" class="img-responsive">
+                            <div class="card-image" data-action="">
+                                <img src="{{ $product->getProductImage() }}" alt="" class="img-responsive">
                             </div>
                             <div class="card-content">
                                 <div class="card-title">{{ $product->title }}</div>

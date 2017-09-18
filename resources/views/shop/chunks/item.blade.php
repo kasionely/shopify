@@ -12,7 +12,14 @@
         <div class="flex-container">
             <div class="product-view">
                 <div class="product-image">
-                    <img src="/{{ $product->imagePath }}" alt="{{ $product->title }}">
+                    <img src="{{ $product->getProductImage() }}" alt="{{ $product->title }}">
+                </div>
+                <div class="product-carousel">
+                    @foreach($product->getGallery() as $index => $image)
+                        <div class="carousel-image">
+                            <img src="{{ $image }}" alt="{{ $product->title }}" data-image="{{ $image }}">
+                        </div>
+                    @endforeach
                 </div>
             </div>
             <div class="product-content">

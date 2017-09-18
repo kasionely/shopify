@@ -12,25 +12,26 @@ use Image;
 
 class ProductController extends Controller
 {
-    public function store(Request $request)
+    public function store(Request $request, Product $product)
     {
-        $imagePath = null;
+//        $imagePath = null;
 
-        if ($request->hasFile('imagePath')){
-            $image    = $request->file('imagePath');
-            $filename = time() . '.' . $image->getClientOriginalExtension();
-            $location = public_path('images/' . $filename);
-            $imagePath = ('images/' . $filename);
-            Image::make($image)->resize(900, 900)->save($imagePath);
-        }
+//        if ($request->hasFile('imagePath')){
+//            $image    = $request->file('imagePath');
+//            $filename = time() . '.' . $image->getClientOriginalExtension();
+//            $location = public_path('images/' . $filename);
+//            $imagePath = ('images/' . $filename);
+//            Image::make($image)->resize(900, 900)->save($imagePath);
+//        }
 
         $product = new Product([
             'title'              => $request->get('title'),
             'little_description' => $request->get('little_description'),
             'description'        => $request->get('description'),
-            'price'              => $request->get('price'),
-            'imagePath'          => $imagePath
+            'price'              => $request->get('price')
         ]);
+
+        $product->save();
 
         $product->gallery()->delete();
 
@@ -45,7 +46,6 @@ class ProductController extends Controller
         }
 
 
-        $product->save();
 
         return redirect('/manage/shop/products/list');
     }

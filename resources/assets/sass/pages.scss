@@ -111,6 +111,26 @@
                 border-radius: 4px;
             }
         }
+        .basket-empty{
+            padding: 20px 0;
+            text-align: center;
+            background-color: #fff;
+
+            h2{
+                margin: 10px 0;
+                font-size: 24px;
+            }
+
+            .go-to-store-btn{
+                display: block;
+                width: 50%;
+                margin: 20px auto;
+                background-color: #fff;
+                color: #3896d0;
+                border: solid 1px #3896d0;
+                padding: 5px 10px;
+            }
+        }
     }
 }
 //Checkout-page

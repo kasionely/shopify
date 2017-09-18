@@ -33,7 +33,7 @@
                         <div class="upload-view-btn item-view"
                              data-action="{{ route('manage.product.image') }}"
                              data-name="image"
-                             data-input="imagePath[]">
+                             data-input="gallery[]">
                             <i class="fa fa-image"></i>
                         </div>
                     </div>

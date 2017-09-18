@@ -17,7 +17,8 @@
                                 <span class=>{{ $product['qty'] }}x
                                     <a href="#">{{ $product['item']['title'] }}</a>
                                 </span>
-                                    <a href="{{ route('basket.delete', ['id' => $product['item']['id']]) }}" class="btn btn-delete"><i class="fa fa-times-circle"></i></a>
+                                    <a href="{{ route('basket.delete', ['id' => $product['item']['id']]) }}"
+                                       class="btn btn-delete"><i class="fa fa-times-circle"></i></a>
                                     <strong>{{ $product['price'] }} тенге</strong>
                                 </li>
                             </ul>
@@ -28,7 +29,10 @@
                         <a href="{{ route('basket.checkout') }}" class="btn btn-checkout">Оформить заказ</a>
                     </div>
                 @else
-                    <h2>No Items</h2>
+                    <div class="basket-empty">
+                        <h2>Ваша корзина пуста</h2>
+                        <a href="/" class="go-to-store-btn">Вернуться к покупкам</a>
+                    </div>
                 @endif
             </div>
         </div>
