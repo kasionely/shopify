@@ -9,17 +9,17 @@
         <div class="flex-container">
             <div class="basket">
                 <div class="basket-header">Корзина</div>
-                @if(Session::has('basket'))
+                @if($baskets->count() > 0)
                     <div class="basket-list">
-                        @foreach($products as $product)
+                        @foreach($baskets as $basket)
                             <ul class="basket-item">
                                 <li>
-                                <span class=>{{ $product['qty'] }}x
-                                    <a href="#">{{ $product['item']['title'] }}</a>
+                                <span class=>{{ $basket->qty }}x
+                                    <a href="#">{{ $basket->product->title }}</a>
                                 </span>
-                                    <a href="{{ route('basket.delete', ['id' => $product['item']['id']]) }}"
+                                    <a href="{{ route('basket.delete', ['id' => $basket->product->id]) }}"
                                        class="btn btn-delete"><i class="fa fa-times-circle"></i></a>
-                                    <strong>{{ $product['price'] }} тенге</strong>
+                                    <strong>{{ $basket->product->price }} тенге</strong>
                                 </li>
                             </ul>
                         @endforeach

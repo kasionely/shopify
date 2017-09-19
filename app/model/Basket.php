@@ -2,40 +2,67 @@
 
 namespace App\Model;
 
-class Basket
+use Illuminate\Database\Eloquent\Model;
+
+use App\Collections;
+
+use Auth;
+use Session;
+
+class Basket extends Model
 {
-    public $items;
-    public $totalQty = 0;
-    public $totalPrice = 0;
+    protected $table = 'baskets';
 
-    public function __construct($oldBasket)
+    protected $fillable = ['user_id', 'session_id', 'product_id', 'qty'];
+
+    public function newCollection(array $models = [])
     {
-        if ($oldBasket){
-            $this->items = $oldBasket->items;
-            $this->totalQty = $oldBasket->totalQty;
-            $this->totalPrice = $oldBasket->totalPrice;
-        }
+        return new Collections\Basket($models);
     }
 
-    public function add($item, $id)
+    public function getPrice()
     {
-        $storedItem = ['qty' => 0, 'price' => $item->price, 'item' => $item];
-
-        if ($this->items){
-            if (array_key_exists($id, $this->items)){
-                $storedItem = $this->items[$id];
-            }
-        }
-        $storedItem['qty']++;
-        $storedItem['price'] = $item->price * $storedItem['qty'];
-        $this->items[$id] = $storedItem;
-        $this->totalQty++;
-        $this->totalPrice += $item->price;
+        return $this->product->price;
     }
-    public function deleteItem($id)
+
+    public function product()
     {
-        $this->totalQty -= $this->items[$id]['qty'];
-        $this->totalPrice -= $this->items[$id]['price'];
-        unset($this->items[$id]);
+        return $this->belongsTo('App\Model\Product');
+    }
+
+    public static function getBasket(Product $product)
+    {
+        $basket = NULL;
+
+        if ($user = Auth::guard()->user()) {
+            $basket = Basket::where([
+                'user_id' => $user->id,
+                'product_id' => $product->id
+            ])->first();
+        } else {
+            $basket = Basket::where([
+                'session_id' => Session::getId(),
+                'product_id' => $product->id
+            ])->first();
+        }
+
+        return $basket;
+    }
+
+    public static function getBaskets()
+    {
+        $baskets = NULL;
+
+        if ($user = Auth::guard()->user()) {
+            $baskets = Basket::where([
+                'user_id' => $user->id
+            ]);
+        } else {
+            $baskets = Basket::where([
+                'session_id' => Session::getId()
+            ]);
+        }
+
+        return $baskets->get();
     }
 }

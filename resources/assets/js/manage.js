@@ -40,7 +40,7 @@ var Select2  = require('select2');
     }
 
     var form    = $('.add-form'),
-        container = $('.product-gallery');
+        container = $('.item-view');
 
     var btn     = $('.upload-view-btn');
 
@@ -79,7 +79,7 @@ var Select2  = require('select2');
                     .css({'background-image': 'url('+ response.images +')'})
                     .html(
                         '<input type="hidden" name="'+ input +'" value="'+ response.src +'">' +
-                        '<a href="#" class="gallery-item-remove"><i class="fa fa-close"></i></a>'
+                        '<a href="" class="gallery-item-remove"><i class="fa fa-close"></i></a>'
                     );
             }
         }

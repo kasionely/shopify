@@ -15,87 +15,98 @@ class ProductController extends Controller{
     {
         return view('shop.index', [
             'products' => $products,
-            'slugs'     => $products->getSlug()
+            'slugs'    => $products->getSlug()
         ]);
     }
 
-    public function getBasketAdded(Request $request, $id)
+    public function getBasketAdded(Request $request, Product $product)
     {
-        $product = Product::find($id);
-        $oldCart = Session::has('basket') ? Session::get('basket') : null;
+        if (!$basket = Basket::getBasket($product))
+        {
+            $user = self::getUser();
 
-        $basket = new Basket($oldCart);
-        $basket->add($product, $product->id);
+            $basket = new Basket([
+                'product_id' => $product->id,
+                'user_id'    => ($user) ? $user->id : NULL,
+                'session_id' => Session::getId()
+            ]);
+        }
 
-        $request->session()->put('basket', $basket);
+        $basket->qty = ($basket->qty) ? $basket->qty++ : 1;
+        $basket->save();
+
         return redirect()->route('shop.index');
     }
 
-    public function basketDelete($id)
+    public function basketDelete(Product $product)
     {
-        $oldCart = Session::has('basket') ? Session::get('basket') : null;
-        $basket = new Basket($oldCart);
-        $basket->deleteItem($id);
-
-        Session::put('basket', $basket);
+        if ($basket = Basket::getBasket($product))
+        {
+            $basket->delete();
+        }
 
         return redirect()->route('basket.list');
     }
 
     public function getBasketList()
     {
-        if (!Session::has('basket'))
-        {
-            return view('shop.basket.index');
-        }
-        $oldCart = Session::get('basket');
-        $basket  = new Basket($oldCart);
+        $baskets = Basket::getBaskets();
 
         return view('shop.basket.index', [
-            'products' => $basket->items,
-            'totalPrice' => $basket->totalPrice
+            'baskets'    => $baskets,
+            'totalPrice' => $baskets->totalPrice()
         ]);
     }
 
     public function getCheckout()
     {
-        if (!Session::has('basket'))
-        {
-            return view('shop.basket.index');
-        }
-
-        $oldBasket = Session::get('basket');
-        $basket = new Basket($oldBasket);
-        $total  = $basket->totalPrice;
-        return view('shop.basket.checkout', ['total' => $total]);
+        return view('shop.basket.checkout', ['total' => Basket::getBaskets()->totalPrice()]);
     }
 
     public function Checkout(Request $request)
     {
-        if (!Session::has('basket'))
-        {
+        if (Basket::getBaskets()->count() <= 0) {
             return redirect('')->route('shop.basket.index');
         }
-        $oldBasket = Session::get('basket');
-        $basket = new Basket($oldBasket);
-        $order  = new Order();
 
-        $order->basket = serialize($basket);
-        $order->firstname   = $request->input('firstname');
-        $order->lastname    = $request->input('lastname');
-        $order->email       = $request->input('email');
-        $order->phone       = $request->input('phone');
-        $order->city        = $request->input('city');
-        $order->address     = $request->input('address');
-        $order->comment     = $request->input('comment');
-        $order->payment     = $request->input('payment');
+        $order = new Order();
 
-        Auth::user()->orders()->save($order);
+        $order->firstname = $request->input('firstname');
+        $order->lastname = $request->input('lastname');
+        $order->email = $request->input('email');
+        $order->phone = $request->input('phone');
+        $order->city = $request->input('city');
+        $order->address = $request->input('address');
+        $order->comment = $request->input('comment');
+        $order->payment = $request->input('payment');
 
-        Session::forget('basket');
+        if( $user = self::getUser() )
         {
-            return redirect()->route('shop.index')->with('success', 'Ваша заявка успешно оформлена');
+            $order->user_id = $user->id;
         }
+        else
+        {
+            $order->session_id = Session::getId();
+        }
+
+        $order->save();
+
+        $order->products()->delete();
+
+        $products = [];
+
+        foreach( Basket::getBaskets() as $basket )
+        {
+            $products[] = new Order\Product([
+                'product_id'    => $basket->product->id,
+                'product_price' => $basket->product->price,
+                'quantity'      => $basket->qty
+            ]);
+        }
+
+        $order->products()->saveMany($products);
+
+        return redirect()->route('shop.index')->with('success', 'Ваша заявка успешно оформлена');
     }
 
     public function view(Request $request, Product $product)

@@ -10,4 +10,21 @@ class Order extends Model
     {
         return $this->belongsTo('App\Model\User');
     }
+
+    public function products()
+    {
+        return $this->hasMany('App\Model\Order\Product', 'order_id', 'id');
+    }
+
+    public function getProducts()
+    {
+        $products = [];
+
+        foreach( $this->products as $product)
+        {
+            $products[] = $product;
+        }
+
+        return $products;
+    }
 }

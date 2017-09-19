@@ -258,11 +258,39 @@
         display: flex;
 
         .svg{
-            max-width: 25px;
+            width: 24px;
+            height: 24px;
             margin: 0 10px;
+            background: url(/icons/iconsshopi-small.png) no-repeat;
+            transition: background 0.3s;
+        }
+
+        .home-icon{
+            background-position: -12px -15px;
 
             &:hover{
-                fill: #5c6ac4;;
+                background-position: -40px -15px;
+            }
+        }
+        .product-icon{
+            background-position: -119px -15px;
+
+            &:hover{
+                background-position: -145px -15px;
+            }
+        }
+        .categories-icon{
+            background-position: -66px -15px;
+
+            &:hover{
+                background-position: -92px -15px;
+            }
+        }
+        .order-icon{
+            background-position: -282px -15px;
+
+            &:hover{
+                background-position: -305px -15px;
             }
         }
     }
@@ -582,5 +610,12 @@
         border-radius: 0 0 3px 3px;
         box-shadow: 0 0 0 1px rgba(63,63,68,0.05), 0 1px 3px 0 rgba(63,63,68,0.15);
         background-color: #fff;
+    }
+
+    .order-view{
+        padding: 10px;
+        background-color: #fff;
+        margin: 40px 0;
+        box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px 0 rgba(63, 63, 68, 0.15);
     }
 }

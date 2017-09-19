@@ -15,8 +15,8 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table){
            $table->increments('id')->unique();
-           $table->integer('user_id');
-           $table->text('basket');
+           $table->integer('user_id')->unsigned()->nullable();
+           $table->string('session_id')->nullable();
            $table->string('firstname');
            $table->string('lastname');
            $table->string('email');
@@ -27,8 +27,23 @@ class CreateOrdersTable extends Migration
            $table->string('payment');
            $table->rememberToken();
            $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        });
+
+        Schema::create('order_products', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->integer('order_id')->unsigned();
+            $table->integer('product_id')->unsigned()->nullable();
+            $table->float('product_price')->unsigned()->nullable(); // without discounts
+            $table->integer('quantity')->unsigned()->nullable();
+
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
         });
     }
+
+
 
     /**
      * Reverse the migrations.

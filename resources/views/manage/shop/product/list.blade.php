@@ -14,8 +14,8 @@
                 <tr>
                     <th>ID</th>
                     <th>Название</th>
-                    <th>Описание</th>
                     <th>Цена</th>
+                    <th>Управление</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -23,7 +23,6 @@
                     <tr>
                         <td>{{$product['id']}}</td>
                         <td>{{$product['title']}}</td>
-                        <td>{{$product['description']}}</td>
                         <td>{{$product['price']}}</td>
                         <td><a href="{{ route('manage.product.edit', $product['id'])}}"
                                class="btn btn-primary">Редактировать</a></td>

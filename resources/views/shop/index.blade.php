@@ -30,9 +30,11 @@
                     @endforeach
                 </div>
             </div>
+            @if($categories->count() > 0)
             <div class="categories-section">
                 <h3>Дополнительные категории</h3>
                 <div class="categories">
+                    @foreach($categories as $category)
                     <a href="#" class="category">
                         <div class="category-content">
                             <div class="category-image"
@@ -42,71 +44,10 @@
                             <div class="category-title">Home</div>
                         </div>
                     </a>
-                    <a href="#" class="category">
-                        <div class="category-content">
-                            <div class="category-image"
-                                 style="background-image: url('https://g1.iggcdn.com/assets/site/home_category_tiles/Desktop/home-ab761c0bd29f1c244c44073155e74b98691ebade0b08b5b44085c2a9d80e8134.jpg')"></div>
-                            <div class="category-background"></div>
-                            <i class="fa fa-home category-icon"></i>
-                            <div class="category-title">Home</div>
-                        </div>
-                    </a>
-                    <a href="#" class="category">
-                        <div class="category-content">
-                            <div class="category-image"
-                                 style="background-image: url('https://g1.iggcdn.com/assets/site/home_category_tiles/Desktop/home-ab761c0bd29f1c244c44073155e74b98691ebade0b08b5b44085c2a9d80e8134.jpg')"></div>
-                            <div class="category-background"></div>
-                            <i class="fa fa-home category-icon"></i>
-                            <div class="category-title">Home</div>
-                        </div>
-                    </a>
-                    <a href="#" class="category">
-                        <div class="category-content">
-                            <div class="category-image"
-                                 style="background-image: url('https://g1.iggcdn.com/assets/site/home_category_tiles/Desktop/home-ab761c0bd29f1c244c44073155e74b98691ebade0b08b5b44085c2a9d80e8134.jpg')"></div>
-                            <div class="category-background"></div>
-                            <i class="fa fa-home category-icon"></i>
-                            <div class="category-title">Home</div>
-                        </div>
-                    </a>
-                    <a href="#" class="category">
-                        <div class="category-content">
-                            <div class="category-image"
-                                 style="background-image: url('https://g1.iggcdn.com/assets/site/home_category_tiles/Desktop/home-ab761c0bd29f1c244c44073155e74b98691ebade0b08b5b44085c2a9d80e8134.jpg')"></div>
-                            <div class="category-background"></div>
-                            <i class="fa fa-home category-icon"></i>
-                            <div class="category-title">Home</div>
-                        </div>
-                    </a>
-                    <a href="#" class="category">
-                        <div class="category-content">
-                            <div class="category-image"
-                                 style="background-image: url('https://g1.iggcdn.com/assets/site/home_category_tiles/Desktop/home-ab761c0bd29f1c244c44073155e74b98691ebade0b08b5b44085c2a9d80e8134.jpg')"></div>
-                            <div class="category-background"></div>
-                            <i class="fa fa-home category-icon"></i>
-                            <div class="category-title">Home</div>
-                        </div>
-                    </a>
-                    <a href="#" class="category">
-                        <div class="category-content">
-                            <div class="category-image"
-                                 style="background-image: url('https://g1.iggcdn.com/assets/site/home_category_tiles/Desktop/home-ab761c0bd29f1c244c44073155e74b98691ebade0b08b5b44085c2a9d80e8134.jpg')"></div>
-                            <div class="category-background"></div>
-                            <i class="fa fa-home category-icon"></i>
-                            <div class="category-title">Home</div>
-                        </div>
-                    </a>
-                    <a href="#" class="category">
-                        <div class="category-content">
-                            <div class="category-image"
-                                 style="background-image: url('https://g1.iggcdn.com/assets/site/home_category_tiles/Desktop/home-ab761c0bd29f1c244c44073155e74b98691ebade0b08b5b44085c2a9d80e8134.jpg')"></div>
-                            <div class="category-background"></div>
-                            <i class="fa fa-home category-icon"></i>
-                            <div class="category-title">Home</div>
-                        </div>
-                    </a>
+                    @endforeach
                 </div>
             </div>
+            @endif
         </div>
     </div>
 @endsection

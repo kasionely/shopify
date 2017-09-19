@@ -74,6 +74,16 @@ Route::group(['middleware' => 'admin', 'namespace' => 'manage', 'prefix' => 'man
        'as'    => 'manage.category.edit'
     ]);
 
+    Route::get('shop/orders/list',[
+       'uses'  => 'ManageController@getOrderList',
+       'as'    => 'manage.order.list'
+    ]);
+
+    Route::get('shop/orders/view/{order}',[
+       'uses'  => 'ManageController@getOrderView',
+       'as'    => 'manage.order.view'
+    ]);
+
     Route::post('shop/products/created',[
         'uses' => 'ProductController@store',
         'as'   => 'manage.product.store'
@@ -157,12 +167,12 @@ Route::group(['prefix' => 'basket'], function()
        'as'   => 'basket.list'
     ]);
 
-    Route::get('added{id}', [
+    Route::get('added/{product}', [
        'uses' => 'ProductController@getBasketAdded',
        'as'   => 'basket.added'
     ]);
 
-    Route::get('/delete{id}',[
+    Route::get('/delete/{product}',[
        'uses' => 'ProductController@basketDelete',
        'as'   => 'basket.delete'
     ]);

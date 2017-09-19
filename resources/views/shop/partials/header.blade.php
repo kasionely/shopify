@@ -3,9 +3,9 @@
         <div class="site-header-content-left">
             <a href="{{ route('shop.index') }}" class="site-header-logo">INDIEGOGO</a>
             <nav role="navigation" class="site-header-links">
-                <a href="#" class="site-header-link">Explore</a>
-                <a href="#" class="site-header-link">For Entrepreneurs</a>
-                <a href="#" class="site-header-link">Equity Offerings</a>
+                <a href="#" class="site-header-link">Каталог</a>
+                <a href="#" class="site-header-link">Доставка</a>
+                <a href="#" class="site-header-link">Оплата</a>
             </nav>
             <div class="site-header-search">
                 <form action="" class="site-header-search-form">
@@ -15,7 +15,7 @@
         </div>
         <div class="site-header-content-right">
             <a href="{{ route('basket.list') }}" class="compaign-btn">Корзина
-                <span class="counter"> {{ Session::has('basket') ? Session::get('basket')->totalQty : '' }}</span>
+                <span class="counter"> {{ \App\Model\Basket::getBaskets()->count() }}</span>
             </a>
             <nav role="navigation" class="site-header-links">
                 @if (Auth::user())

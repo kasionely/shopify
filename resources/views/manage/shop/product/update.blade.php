@@ -27,6 +27,12 @@
                 </div>
                 <div class="some-form-item">
                     <label for="smFormGroupInput">Добавить картинку:</label>
+                    @foreach( $product->getGallery() as $key => $image)
+                        <div class="item-view" style="background-image: url({{ $image }})">
+                            <input type="hidden" class="imagePath" value="{{ $image }}">
+                            <a href="" class="gallery-item-remove"><i class="fa fa-close"></i></a>
+                        </div>
+                    @endforeach
                     <div class="upload-view-btn item-view">
                         <i class="fa fa-image"></i>
                         <input type="hidden" name="imagePath">
