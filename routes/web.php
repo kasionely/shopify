@@ -16,6 +16,41 @@ Route::get('/', [
     'as'   => 'shop.index'
 ]);
 
+Route::get('/about', [
+    'uses' => 'HomeController@getAbout',
+    'as'   => 'shop.about'
+]);
+
+Route::get('/delivery', [
+    'uses' => 'HomeController@getDelivery',
+    'as'   => 'shop.delivery'
+]);
+
+Route::get('/payment', [
+    'uses' => 'HomeController@getPayment',
+    'as'   => 'shop.payment'
+]);
+
+Route::get('/refund', [
+    'uses' => 'HomeController@getRefund',
+    'as'   => 'shop.refund'
+]);
+
+Route::get('/contacts', [
+    'uses' => 'HomeController@getContacts',
+    'as'   => 'shop.contacts'
+]);
+
+Route::get('/catalog', [
+    'uses' => 'HomeController@getCatalog',
+    'as'   => 'shop.catalog'
+]);
+
+Route::get('/search', [
+    'uses' => 'ProductController@search',
+    'as'   => 'shop.search'
+]);
+
 Route::any('/product/{product}_{slug}', 'ProductController@view');
 
 Route::group(['namespace' => 'manage', 'prefix' => 'admin'], function (){

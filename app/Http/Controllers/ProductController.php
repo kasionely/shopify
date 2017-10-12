@@ -124,4 +124,18 @@ class ProductController extends Controller{
     {
 
     }
+
+    public function search(Request $request, Product $products)
+    {
+        $searchable  = $request->input('searchable');
+
+        $products->search($searchable);
+
+        dd($products);
+
+        return view('shop.chunks.search', [
+           'products' => $products
+        ]);
+
+    }
 }

@@ -67,4 +67,9 @@ class Product extends Abstracts\Model implements Arrayable
     {
         return $this->hasMany('App\Model\Shop\Product\Property', 'product_id', 'id');
     }
+
+    public function scopeSearch($query, $searchable)
+    {
+        return $query->where('products.title', 'LIKE', "%{$searchable}%");
+    }
 }

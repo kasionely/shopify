@@ -73,9 +73,20 @@ $mobile: 768px;
     @media screen and(max-width: $mobile) {
         min-width: 100%;
     }
+
+    .search-icon{
+        width: 32px;
+        height: 33px;
+        color: #db1471;
+        border: none;
+        background-color: transparent;
+        position: absolute;
+        right: 1px;
+        top: 1px;
+    }
 }
 .search-field{
-    width: 10em;
+    width: 20em;
     height: 35px;
     transition: all .3s ease-out;
     padding: 5px 15px;
